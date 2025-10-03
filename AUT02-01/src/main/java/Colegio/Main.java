@@ -1,7 +1,7 @@
 package Colegio;
 import java.util.Scanner;
 
-import static Colegio.controllers.AlumnosController.*;
+import static Colegio.controllers.EstudiantesController.*;
 
 public class Main {
     static void main(String[] args) {
@@ -24,13 +24,13 @@ public class Main {
 
             switch (selector){
                 case 1:
-                    addAlumnos();
+                    addEstudiante();
                     break;
                 case 2:
-                    mostrarAlumnos();
+                    mostrarEstudiantes();
                     break;
                 case 3:
-                    System.out.println(selector);
+                    buscarEstudiante();
                     break;
                 case 4:
                     System.out.println(selector);
