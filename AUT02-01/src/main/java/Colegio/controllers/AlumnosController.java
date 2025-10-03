@@ -19,4 +19,11 @@ public class AlumnosController {
 
         listaAlumnos.add(alumno);
     }
+
+    public static void mostrarAlumnos(){
+        System.out.println("Lista de Alumnos: ");
+        for (Alumno a : listaAlumnos){
+            System.out.println("Alumno " + a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.");
+        }
+    }
 }

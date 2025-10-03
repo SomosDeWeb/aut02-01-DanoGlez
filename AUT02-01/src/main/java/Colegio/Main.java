@@ -1,7 +1,7 @@
 package Colegio;
 import java.util.Scanner;
 
-import static Colegio.controllers.AlumnosController.addAlumnos;
+import static Colegio.controllers.AlumnosController.*;
 
 public class Main {
     static void main(String[] args) {
@@ -20,13 +20,14 @@ public class Main {
             System.out.println("6. Salir");
 
             selector = Integer.parseInt(Reproductor("Seleccione opción: "));
+            System.out.println("-------------------------------------");
 
             switch (selector){
                 case 1:
                     addAlumnos();
                     break;
                 case 2:
-                    System.out.println(selector);
+                    mostrarAlumnos();
                     break;
                 case 3:
                     System.out.println(selector);
