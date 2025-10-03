@@ -1,32 +1,30 @@
 package Colegio;
-import Colegio.models.Estudiante;
 
-import java.util.List;
 import java.util.Scanner;
 
 import static Colegio.controllers.EstudiantesController.*;
 
 public class Main {
-    static void main(String[] args) {
+    private static final Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
         int selector;
         do {
          selector = Menu();
 
             switch (selector){
                 case 1:
-                    String Nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
-                    int Edad = Integer.parseInt(Reproductor("¿Qué edad tiene el Estudiante? "));
-                    double Nota = Double.parseDouble(Reproductor("Nota media del Estudiante: "));
-                    addEstudiante(Nombre, Edad, Nota);
+                    String nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
+                    int edad = pedirEntero("¿Qué edad tiene el Estudiante? ");
+                    double nota = pedirDouble("Nota media del Estudiante: ");
+                    addEstudiante(nombre, edad, nota);
                     break;
                 case 2:
-                    String Resultado = mostrarEstudiantes();
-                    System.out.println(Resultado);
+                    System.out.println(mostrarEstudiantes());
                     break;
                 case 3:
                     String NombreBusqueda = Reproductor("¿Cuál es el nombre del Estudiante que busca? ");
-                    String ResultadoBusqueda = buscarEstudiante(NombreBusqueda);
-                    System.out.println(ResultadoBusqueda);
+                    System.out.println(buscarEstudiante(NombreBusqueda));
                     break;
                 case 4:
                     System.out.println("La nota media de todos los alumnos es " + notaMedia());
@@ -34,9 +32,10 @@ public class Main {
                 case 5:
                     System.out.println(mejorNota());
                     break;
+                default:
+                    System.out.println("Opción no válida, intente de nuevo.");
+                    break;
             }
-
-//            System.out.println("[DEBUG]: " + selector);
         }while(selector != 6);
 
     }
@@ -56,14 +55,32 @@ public class Main {
         return selector;
     }
 
-    public static String Reproductor(String Texto){
-        Scanner sc = new Scanner(System.in);
-        String Resultado;
-//        Imprime en consola
-            System.out.print(Texto);
-//        Recoge el texto que recibe
-            Resultado = sc.nextLine();
+    public static String Reproductor(String texto) {
+        System.out.print(texto);
+        return sc.nextLine();
+    }
 
-        return Resultado;
+    private static int pedirEntero(String mensaje) {
+        int numero;
+        while (true) {
+            try {
+                numero = Integer.parseInt(Reproductor(mensaje).trim());
+                return numero;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, introduce un número entero.");
+            }
+        }
+    }
+
+    private static double pedirDouble(String mensaje) {
+        double numero;
+        while (true) {
+            try {
+                numero = Double.parseDouble(Reproductor(mensaje).trim());
+                return numero;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, introduce un número decimal.");
+            }
+        }
     }
 }

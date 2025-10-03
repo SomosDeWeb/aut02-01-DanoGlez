@@ -5,8 +5,6 @@ import java.util.Objects;
 
 import Colegio.models.Estudiante;
 
-import static Colegio.Main.Reproductor;
-
 public class EstudiantesController {
 
     private static ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
@@ -24,7 +22,7 @@ public class EstudiantesController {
 
         StringBuilder resultado = new StringBuilder();
         for (Estudiante a : listaEstudiantes) {
-            resultado.append(a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.\n");
+            resultado.append(a.getNombre() + " con " + a.getEdad() + " años tiene " + a.getNota() + " de nota media.\n");
         }
 
         return resultado.toString();
@@ -36,7 +34,7 @@ public class EstudiantesController {
 
         for (Estudiante a : listaEstudiantes){
             if(Objects.equals(a.getNombre(), Nombre)){
-                Resultado = (a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.");
+                Resultado = (a.getNombre() + " con " + a.getEdad() + " años tiene " + a.getNota() + " de nota media.");
                 break;
             }
         }
