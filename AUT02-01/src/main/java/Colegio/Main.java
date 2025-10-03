@@ -1,36 +1,32 @@
 package Colegio;
+import Colegio.models.Estudiante;
+
+import java.util.List;
 import java.util.Scanner;
 
 import static Colegio.controllers.EstudiantesController.*;
 
 public class Main {
     static void main(String[] args) {
-        Menu();
-    }
-
-    private static void Menu(){
         int selector;
         do {
-            System.out.println("-------------------------------------");
-            System.out.println("1. Añadir Estudiante");
-            System.out.println("2. Listar Estudiantes");
-            System.out.println("3. Buscar por nombre");
-            System.out.println("4. Calcular nota media general");
-            System.out.println("5. Mostrar mejor estudiante");
-            System.out.println("6. Salir");
-
-            selector = Integer.parseInt(Reproductor("Seleccione opción: "));
-            System.out.println("-------------------------------------");
+         selector = Menu();
 
             switch (selector){
                 case 1:
-                    addEstudiante();
+                    String Nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
+                    int Edad = Integer.parseInt(Reproductor("¿Qué edad tiene el Estudiante? "));
+                    double Nota = Double.parseDouble(Reproductor("Nota media del Estudiante: "));
+                    addEstudiante(Nombre, Edad, Nota);
                     break;
                 case 2:
-                    mostrarEstudiantes();
+                    String Resultado = mostrarEstudiantes();
+                    System.out.println(Resultado);
                     break;
                 case 3:
-                    buscarEstudiante();
+                    String NombreBusqueda = Reproductor("¿Cuál es el nombre del Estudiante que busca? ");
+                    String ResultadoBusqueda = buscarEstudiante(NombreBusqueda);
+                    System.out.println(ResultadoBusqueda);
                     break;
                 case 4:
                     System.out.println(selector);
@@ -42,6 +38,22 @@ public class Main {
 
 //            System.out.println("[DEBUG]: " + selector);
         }while(selector != 6);
+
+    }
+
+    private static int Menu(){
+        int selector;
+        System.out.println("-------------------------------------");
+        System.out.println("1. Añadir Estudiante");
+        System.out.println("2. Listar Estudiantes");
+        System.out.println("3. Buscar por nombre");
+        System.out.println("4. Calcular nota media general");
+        System.out.println("5. Mostrar mejor estudiante");
+        System.out.println("6. Salir");
+
+        selector = Integer.parseInt(Reproductor("Seleccione opción: "));
+        System.out.println("-------------------------------------");
+        return selector;
     }
 
     public static String Reproductor(String Texto){
