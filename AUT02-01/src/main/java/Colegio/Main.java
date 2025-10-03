@@ -29,7 +29,7 @@ public class Main {
                     System.out.println(ResultadoBusqueda);
                     break;
                 case 4:
-                    System.out.println(selector);
+                    System.out.println("La nota media de todos los alumnos es " + notaMedia());
                     break;
                 case 5:
                     System.out.println(selector);

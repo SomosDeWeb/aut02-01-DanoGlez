@@ -43,4 +43,15 @@ public class EstudiantesController {
 
         return Resultado;
     }
+
+    public static double notaMedia(){
+        double notas = 0;
+        int pases = 0;
+        for (Estudiante a : listaEstudiantes){
+            notas += a.getNota();
+            pases++;
+        }
+
+        return notas / (double)pases;
+    }
 }
