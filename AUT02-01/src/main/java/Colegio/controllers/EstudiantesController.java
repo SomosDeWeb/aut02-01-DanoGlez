@@ -1,29 +1,29 @@
 package Colegio.controllers;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-import Colegio.Main;
-import Colegio.models.Alumno;
+import Colegio.models.Estudiante;
 
 import static Colegio.Main.Reproductor;
 
-public class AlumnosController {
+public class EstudiantesController {
 
-    private static ArrayList<Alumno> listaAlumnos = new ArrayList<>();
+    private static ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
 
-    public static void addAlumnos(){
-        String Nombre = Reproductor("¿Cuál es el nombre del alumno? ");
-        int Edad = Integer.parseInt(Reproductor("¿Qué edad tiene el alumno? "));
-        double Nota = Double.parseDouble(Reproductor("Nota media del alumno: "));
-        Alumno alumno = new Alumno(Nombre, Edad, Nota);
+    public static void addEstudiante(){
+        String Nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
+        int Edad = Integer.parseInt(Reproductor("¿Qué edad tiene el Estudiante? "));
+        double Nota = Double.parseDouble(Reproductor("Nota media del Estudiante: "));
+        Estudiante estudiante = new Estudiante(Nombre, Edad, Nota);
 
-        listaAlumnos.add(alumno);
+        listaEstudiantes.add(estudiante);
     }
 
-    public static void mostrarAlumnos(){
-        System.out.println("Lista de Alumnos: ");
-        for (Alumno a : listaAlumnos){
-            System.out.println("Alumno " + a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.");
+    public static void mostrarEstudiantes(){
+        System.out.println("Lista de Estudiantes: ");
+        for (Estudiante a : listaEstudiantes){
+            System.out.println(a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.");
         }
     }
 }
