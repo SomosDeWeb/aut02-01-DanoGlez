@@ -11,25 +11,28 @@ public class EstudiantesController {
 
     private static ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
 
-    public static void addEstudiante(){
-        String Nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
-        int Edad = Integer.parseInt(Reproductor("¿Qué edad tiene el Estudiante? "));
-        double Nota = Double.parseDouble(Reproductor("Nota media del Estudiante: "));
+    public static void addEstudiante(String Nombre, int Edad, double Nota){
         Estudiante estudiante = new Estudiante(Nombre, Edad, Nota);
 
         listaEstudiantes.add(estudiante);
     }
 
-    public static void mostrarEstudiantes(){
-        System.out.println("Lista de Estudiantes: ");
-        for (Estudiante a : listaEstudiantes){
-            System.out.println(a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.");
+    public static String mostrarEstudiantes() {
+        if (listaEstudiantes.isEmpty()) {
+            return "No hay estudiantes registrados.";
         }
+
+        StringBuilder resultado = new StringBuilder();
+        for (Estudiante a : listaEstudiantes) {
+            resultado.append(a.getNombre() + " con Edad " + a.getEdad() + " tiene " + a.getNota() + " de nota media.\n");
+        }
+
+        return resultado.toString();
     }
 
-    public static void buscarEstudiante(){
+
+    public static String buscarEstudiante(String Nombre){
         String Resultado = "No encontrado";
-        String Nombre = Reproductor("¿Cuál es el nombre del Estudiante que busca? ");
 
         for (Estudiante a : listaEstudiantes){
             if(Objects.equals(a.getNombre(), Nombre)){
@@ -38,7 +41,6 @@ public class EstudiantesController {
             }
         }
 
-        System.out.println("Resultado de búsqueda: " + Resultado);
-
+        return Resultado;
     }
 }
