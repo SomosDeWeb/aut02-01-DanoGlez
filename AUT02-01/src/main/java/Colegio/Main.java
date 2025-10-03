@@ -39,7 +39,7 @@ public class Main {
                     break;
             }
 
-            System.out.println("[DEBUG]: " + selector);
+//            System.out.println("[DEBUG]: " + selector);
         }while(selector != 6);
     }
 
