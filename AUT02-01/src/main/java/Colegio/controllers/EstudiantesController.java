@@ -54,4 +54,16 @@ public class EstudiantesController {
 
         return notas / (double)pases;
     }
+
+    public static String mejorNota(){
+        String Resultado = "";
+        Double NotaMayor = 0.0;
+        for (Estudiante a : listaEstudiantes){
+            if(a.getNota() > NotaMayor){
+                Resultado = a.getNombre() + " con " + a.getEdad() + " años tiene " + a.getNota() + " de nota media.";
+                NotaMayor = a.getNota();
+            }
+        }
+        return Resultado;
+    }
 }
