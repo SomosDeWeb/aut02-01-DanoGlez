@@ -17,7 +17,8 @@ public class Main {
                     String nombre = Reproductor("¿Cuál es el nombre del Estudiante? ");
                     int edad = pedirEntero("¿Qué edad tiene el Estudiante? ");
                     double nota = pedirDouble("Nota media del Estudiante: ");
-                    addEstudiante(nombre, edad, nota);
+                    boolean matriculado = pedirBoleano("¿Esta matriculado? (Si/No) ");
+                    addEstudiante(nombre, edad, nota, matriculado);
                     break;
                 case 2:
                     System.out.println(mostrarEstudiantes());
@@ -58,6 +59,19 @@ public class Main {
     public static String Reproductor(String texto) {
         System.out.print(texto);
         return sc.nextLine();
+    }
+
+    public static boolean pedirBoleano(String mensaje) {
+        while (true) {
+            String devolucion = Reproductor(mensaje).trim();
+            if (devolucion.equalsIgnoreCase("si")) {
+                return true;
+            } else if (devolucion.equalsIgnoreCase("no")) {
+                return false;
+            } else {
+                System.out.println("Entrada inválida. Por favor, responde solo con 'si' o 'no'.");
+            }
+        }
     }
 
     private static int pedirEntero(String mensaje) {

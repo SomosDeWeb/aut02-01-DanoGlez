@@ -2,22 +2,26 @@ package Colegio.models;
 
 public class Estudiante {
 
-    public Estudiante(String nombre, int edad, double nota) {
+    public Estudiante(String nombre, int edad, double nota, boolean matriculado) {
         this.nombre = nombre;
         this.edad = edad;
         this.nota = nota;
+        this.matriculado = matriculado;
     }
 
     private String nombre;
     private int edad;
     private double nota;
+    private boolean matriculado;
 
     public String getNombre() {
         return this.nombre;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if(nombre.length() > 1){
+            this.nombre = nombre;
+        }
     }
 
     public int getEdad() {
@@ -39,5 +43,11 @@ public class Estudiante {
         if (nota >= 0 && nota <= 10){
             this.nota = nota;
         }
+    }
+
+    public boolean getMatriculado() { return this.matriculado;}
+
+    public void setMatriculado(boolean matriculado){
+        this.matriculado = matriculado;
     }
 }
